@@ -6,6 +6,34 @@ cd /d "%~dp0"
 IF "%PROGRAMFILES(x86)%" == "" goto x86
 goto x64
 
+:x86D2017FD01
+if not exist "%ProgramFiles%\Dymola 2017 FD01\bin\lib" goto x86D2017
+echo.
+echo Kopiere .LIB ins Dymola 2017 FD01-Verzeichnis
+echo "%ProgramFiles%\Dymola 2017 FD01\bin\lib"
+xcopy "*.lib" "%ProgramFiles%\Dymola 2017 FD01\bin\lib" /Q /Y /O
+
+:x86D2017
+if not exist "%ProgramFiles%\Dymola 2017\bin\lib" goto x86D2016FD01
+echo.
+echo Kopiere .LIB ins Dymola 2017-Verzeichnis
+echo "%ProgramFiles%\Dymola 2017\bin\lib"
+xcopy "*.lib" "%ProgramFiles%\Dymola 2017\bin\lib" /Q /Y /O
+
+:x86D2016FD01
+if not exist "%ProgramFiles%\Dymola 2016 FD01\bin\lib" goto x86D2016
+echo.
+echo Kopiere .LIB ins Dymola 2016 FD01-Verzeichnis
+echo "%ProgramFiles%\Dymola 2016 FD01\bin\lib"
+xcopy "*.lib" "%ProgramFiles%\Dymola 2016 FD01\bin\lib" /Q /Y /O
+
+:x86D2016
+if not exist "%ProgramFiles%\Dymola 2016\bin\lib" goto x86D2015FD01
+echo.
+echo Kopiere .LIB ins Dymola 2016-Verzeichnis
+echo "%ProgramFiles%\Dymola 2016\bin\lib"
+xcopy "*.lib" "%ProgramFiles%\Dymola 2016\bin\lib" /Q /Y /O
+
 :x86D2015FD01
 if not exist "%ProgramFiles%\Dymola 2015 FD01\bin\lib" goto x86D2015
 echo.
@@ -89,6 +117,54 @@ goto END
 echo.
 echo System identified as x64
 echo.
+
+:x64D2017FD01
+if not exist "%ProgramFiles(x86)%\Dymola 2017 FD01\bin\lib" goto x64D2017
+echo.
+echo Kopiere .LIB (x86) ins Dymola 2017 FD01-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2017 FD01\bin\lib"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2017 FD01\bin\lib" /Q /Y /O
+if not exist "%ProgramFiles(x86)%\Dymola 2017 FD01\bin\lib64" goto x64D2017
+echo.
+echo Kopiere .LIB (x64) ins Dymola 2017 FD01-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2017 FD01\bin\lib64"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2017 FD01\bin\lib64" /Q /Y /O
+
+:x64D2017
+if not exist "%ProgramFiles(x86)%\Dymola 2017\bin\lib" goto x64D2016FD01
+echo.
+echo Kopiere .LIB (x86) ins Dymola 2017-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2017\bin\lib"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2017\bin\lib" /Q /Y /O
+if not exist "%ProgramFiles(x86)%\Dymola 2017\bin\lib64" goto x64D2016FD01
+echo.
+echo Kopiere .LIB (x64) ins Dymola 2017-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2017\bin\lib64"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2017\bin\lib64" /Q /Y /O
+
+:x64D2016FD01
+if not exist "%ProgramFiles(x86)%\Dymola 2016 FD01\bin\lib" goto x64D2016
+echo.
+echo Kopiere .LIB (x86) ins Dymola 2016 FD01-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2016 FD01\bin\lib"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2016 FD01\bin\lib" /Q /Y /O
+if not exist "%ProgramFiles(x86)%\Dymola 2016 FD01\bin\lib64" goto x64D2016
+echo.
+echo Kopiere .LIB (x64) ins Dymola 2016 FD01-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2016 FD01\bin\lib64"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2016 FD01\bin\lib64" /Q /Y /O
+
+:x64D2016
+if not exist "%ProgramFiles(x86)%\Dymola 2016\bin\lib" goto x64D2015FD01
+echo.
+echo Kopiere .LIB (x86) ins Dymola 2016-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2016\bin\lib"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2016\bin\lib" /Q /Y /O
+if not exist "%ProgramFiles(x86)%\Dymola 2016\bin\lib64" goto x64D2015FD01
+echo.
+echo Kopiere .LIB (x64) ins Dymola 2016-Verzeichnis
+echo "%ProgramFiles(x86)%\Dymola 2016\bin\lib64"
+xcopy "*.lib" "%ProgramFiles(x86)%\Dymola 2015\bin\lib64" /Q /Y /O
 
 :x64D2015FD01
 if not exist "%ProgramFiles(x86)%\Dymola 2015 FD01\bin\lib" goto x64D2015
